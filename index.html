@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Statement of Operations — Cozy Comfort Insulation</title>
+<style>
+  @page { size: letter; margin: 0.6in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: #1a2433;
+    margin: 0;
+    padding: 40px 50px;
+    background: #f4f6f9;
+    line-height: 1.4;
+    font-size: 11pt;
+  }
+  .doc {
+    max-width: 850px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 50px 55px;
+    box-shadow: 0 4px 24px rgba(11,37,69,0.08);
+  }
+  @media print {
+    body { background: #fff; padding: 0; }
+    .doc { box-shadow: none; padding: 0; max-width: 100%; }
+  }
+
+  /* Header */
+  .masthead {
+    border-bottom: 3px solid #0b2545;
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .masthead .brand {
+    font-size: 20pt;
+    font-weight: 300;
+    letter-spacing: 2px;
+    color: #0b2545;
+  }
+  .masthead .brand strong { font-weight: 700; }
+  .masthead .brand .sub {
+    display: block;
+    font-size: 8pt;
+    letter-spacing: 3px;
+    color: #5a6878;
+    margin-top: 6px;
+    font-weight: 400;
+  }
+  .masthead .meta {
+    text-align: right;
+    font-size: 9pt;
+    color: #5a6878;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .masthead .meta .doc-title {
+    font-size: 11pt;
+    color: #0b2545;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+
+  /* Section title */
+  h2 {
+    font-size: 11pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #0b2545;
+    border-bottom: 1px solid #c9d1dc;
+    padding-bottom: 6px;
+    margin-top: 28px;
+    margin-bottom: 14px;
+  }
+  h3 {
+    font-size: 10pt;
+    font-weight: 700;
+    color: #0b2545;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 18px;
+    margin-bottom: 8px;
+  }
+
+  /* KPI Cards */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+  .kpi {
+    border: 1px solid #d4dbe5;
+    border-top: 3px solid #0b2545;
+    padding: 14px 14px 12px;
+    background: #fafbfd;
+  }
+  .kpi .label {
+    font-size: 8pt;
+    color: #5a6878;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .kpi .value {
+    font-size: 17pt;
+    font-weight: 600;
+    color: #0b2545;
+    line-height: 1.1;
+  }
+  .kpi .delta {
+    font-size: 8.5pt;
+    color: #2a8055;
+    margin-top: 4px;
+  }
+  .kpi .delta.neg { color: #b04444; }
+
+  /* P&L Table */
+  table.pnl {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10.5pt;
+  }
+  table.pnl th, table.pnl td {
+    padding: 7px 10px;
+    text-align: right;
+  }
+  table.pnl th:first-child, table.pnl td:first-child {
+    text-align: left;
+  }
+  table.pnl thead th {
+    border-bottom: 2px solid #0b2545;
+    font-size: 9pt;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #0b2545;
+    font-weight: 700;
+    padding-bottom: 8px;
+  }
+  table.pnl tbody tr.section-header td {
+    font-weight: 700;
+    color: #0b2545;
+    background: #f1f4f8;
+    text-transform: uppercase;
+    font-size: 9pt;
+    letter-spacing: 1px;
+    padding: 8px 10px;
+    border-top: 1px solid #c9d1dc;
+  }
+  table.pnl tbody tr.line td { color: #2c3a4d; }
+  table.pnl tbody tr.line td:first-child { padding-left: 22px; }
+  table.pnl tbody tr.subtotal td {
+    border-top: 1px solid #c9d1dc;
+    font-weight: 600;
+    padding-top: 8px;
+  }
+  table.pnl tbody tr.subtotal td:first-child {
+    padding-left: 10px;
+    text-transform: uppercase;
+    font-size: 9.5pt;
+    letter-spacing: 0.5px;
+  }
+  table.pnl tbody tr.gross td {
+    background: #fafbfd;
+    border-top: 1.5px solid #0b2545;
+    border-bottom: 1.5px solid #0b2545;
+    font-weight: 700;
+    color: #0b2545;
+    font-size: 11pt;
+    padding: 10px;
+  }
+  table.pnl tbody tr.gross td:first-child { text-transform: uppercase; letter-spacing: 1px; }
+  table.pnl tbody tr.opincome td {
+    background: #eef2f7;
+    border-top: 1px solid #0b2545;
+    font-weight: 700;
+    color: #0b2545;
+    font-size: 10.5pt;
+    padding: 9px 10px;
+  }
+  table.pnl tbody tr.opincome td:first-child { text-transform: uppercase; letter-spacing: 1px; padding-left: 10px;}
+  table.pnl tbody tr.netincome td {
+    background: #0b2545;
+    color: #fff;
+    font-weight: 700;
+    font-size: 11.5pt;
+    padding: 12px 10px;
+  }
+  table.pnl tbody tr.netincome td:first-child { text-transform: uppercase; letter-spacing: 1.2px; }
+  table.pnl .pct {
+    color: #5a6878;
+    font-size: 9pt;
+    width: 60px;
+  }
+  table.pnl tbody tr.gross td.pct,
+  table.pnl tbody tr.opincome td.pct,
+  table.pnl tbody tr.netincome td.pct {
+    color: inherit;
+    opacity: 0.85;
+  }
+
+  /* Side notes */
+  .notes {
+    font-size: 9pt;
+    color: #5a6878;
+    line-height: 1.5;
+    border-left: 3px solid #c9d1dc;
+    padding: 4px 14px;
+    margin-top: 18px;
+  }
+  .notes strong { color: #0b2545; }
+
+  /* Page break */
+  .page-break { page-break-before: always; }
+
+  /* Two-column layout */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+
+  .signature-line {
+    margin-top: 50px;
+    font-size: 8pt;
+    color: #5a6878;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-top: 1px solid #c9d1dc;
+    padding-top: 10px;
+  }
+
+  .metric-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px dotted #d4dbe5;
+    font-size: 10pt;
+  }
+  .metric-row:last-child { border-bottom: none; }
+  .metric-row .lbl { color: #5a6878; }
+  .metric-row .val { font-weight: 600; color: #0b2545; }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <!-- ============ PAGE 1: EXECUTIVE SUMMARY ============ -->
+  <div class="masthead">
+    <div class="brand">
+      COZY COMFORT <strong>INSULATION</strong>
+      <span class="sub">SANTA ANA &middot; BEVERLY HILLS &middot; SOUTHERN CALIFORNIA</span>
+    </div>
+    <div class="meta">
+      <div class="doc-title">Statement of Operations</div>
+      <div>Two Months Ended April 30, 2026</div>
+      <div>Prepared June 4, 2026 &middot; Confidential</div>
+    </div>
+  </div>
+
+  <h2>Executive Summary</h2>
+
+  <div class="kpi-grid">
+    <div class="kpi">
+      <div class="label">Gross Revenue</div>
+      <div class="value">$184,867</div>
+      <div class="delta">2-Month Total</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Gross Profit</div>
+      <div class="value">$117,387</div>
+      <div class="delta">63.5% Gross Margin</div>
+    </div>
+    <div class="kpi">
+      <div class="label">EBITDA</div>
+      <div class="value">$74,612</div>
+      <div class="delta">40.4% Op. Margin</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Net Income</div>
+      <div class="value">$54,612</div>
+      <div class="delta">29.5% Net Margin</div>
+    </div>
+  </div>
+
+  <h2>Consolidated Income Statement</h2>
+
+  <table class="pnl">
+    <thead>
+      <tr>
+        <th>($ USD)</th>
+        <th>March 2026</th>
+        <th class="pct">% Rev</th>
+        <th>April 2026</th>
+        <th class="pct">% Rev</th>
+        <th>2-Month Total</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr class="section-header"><td colspan="6">Revenue</td></tr>
+      <tr class="line">
+        <td>Residential Insulation (R-38 / R-19)</td>
+        <td>86,912</td><td class="pct">79.3%</td>
+        <td>62,418</td><td class="pct">82.9%</td>
+        <td>149,330</td>
+      </tr>
+      <tr class="line">
+        <td>Specialty Services (Spray Foam, Dense-Pack, Ducts)</td>
+        <td>22,630</td><td class="pct">20.7%</td>
+        <td>12,907</td><td class="pct">17.1%</td>
+        <td>35,537</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Total Revenue</td>
+        <td>109,542</td><td class="pct">100.0%</td>
+        <td>75,325</td><td class="pct">100.0%</td>
+        <td>184,867</td>
+      </tr>
+
+      <tr class="section-header"><td colspan="6">Cost of Revenue</td></tr>
+      <tr class="line">
+        <td>Materials</td>
+        <td>18,627</td><td class="pct">17.0%</td>
+        <td>12,810</td><td class="pct">17.0%</td>
+        <td>31,437</td>
+      </tr>
+      <tr class="line">
+        <td>Direct Labor &amp; Subcontractor</td>
+        <td>9,934</td><td class="pct">9.1%</td>
+        <td>14,750</td><td class="pct">19.6%</td>
+        <td>24,684</td>
+      </tr>
+      <tr class="line">
+        <td>Equipment &amp; Vehicle</td>
+        <td>6,920</td><td class="pct">6.3%</td>
+        <td>4,439</td><td class="pct">5.9%</td>
+        <td>11,359</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Total Cost of Revenue</td>
+        <td>35,481</td><td class="pct">32.4%</td>
+        <td>31,999</td><td class="pct">42.5%</td>
+        <td>67,480</td>
+      </tr>
+
+      <tr class="gross">
+        <td>Gross Profit</td>
+        <td>74,061</td><td class="pct">67.6%</td>
+        <td>43,326</td><td class="pct">57.5%</td>
+        <td>117,387</td>
+      </tr>
+
+      <tr class="section-header"><td colspan="6">Operating Expenses</td></tr>
+      <tr class="line">
+        <td>Sales &amp; Marketing (Lead Gen, Setters)</td>
+        <td>6,320</td><td class="pct">5.8%</td>
+        <td>6,320</td><td class="pct">8.4%</td>
+        <td>12,640</td>
+      </tr>
+      <tr class="line">
+        <td>Sales Commissions (Outside Sales)</td>
+        <td>10,954</td><td class="pct">10.0%</td>
+        <td>7,533</td><td class="pct">10.0%</td>
+        <td>18,487</td>
+      </tr>
+      <tr class="line">
+        <td>Insurance (GL, WC, Auto)</td>
+        <td>1,161</td><td class="pct">1.1%</td>
+        <td>1,161</td><td class="pct">1.5%</td>
+        <td>2,322</td>
+      </tr>
+      <tr class="line">
+        <td>Telecom &amp; Digital Infrastructure</td>
+        <td>1,806</td><td class="pct">1.6%</td>
+        <td>1,806</td><td class="pct">2.4%</td>
+        <td>3,612</td>
+      </tr>
+      <tr class="line">
+        <td>Licensing &amp; Compliance</td>
+        <td>600</td><td class="pct">0.5%</td>
+        <td>600</td><td class="pct">0.8%</td>
+        <td>1,200</td>
+      </tr>
+      <tr class="line">
+        <td>General &amp; Administrative</td>
+        <td>2,257</td><td class="pct">2.1%</td>
+        <td>2,257</td><td class="pct">3.0%</td>
+        <td>4,514</td>
+      </tr>
+      <tr class="subtotal">
+        <td>Total Operating Expenses</td>
+        <td>23,098</td><td class="pct">21.1%</td>
+        <td>19,677</td><td class="pct">26.1%</td>
+        <td>42,775</td>
+      </tr>
+
+      <tr class="opincome">
+        <td>Operating Income (EBITDA)</td>
+        <td>50,963</td><td class="pct">46.5%</td>
+        <td>23,649</td><td class="pct">31.4%</td>
+        <td>74,612</td>
+      </tr>
+
+      <tr class="section-header"><td colspan="6">Owner Compensation</td></tr>
+      <tr class="line">
+        <td>Owner Compensation &amp; Distributions</td>
+        <td>10,000</td><td class="pct">9.1%</td>
+        <td>10,000</td><td class="pct">13.3%</td>
+        <td>20,000</td>
+      </tr>
+
+      <tr class="netincome">
+        <td>Net Income</td>
+        <td>40,963</td><td class="pct">37.4%</td>
+        <td>13,649</td><td class="pct">18.1%</td>
+        <td>54,612</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="notes">
+    <strong>Note:</strong> Net income is stated after owner compensation and distributions, providing a normalized
+    view of standalone divisional profitability. March results reflect peak attic R-38 retrofit demand;
+    April reflects a normalized seasonal mix. All figures unaudited, prepared on a cash basis from primary
+    banking and job-cost records.
+  </div>
+
+  <div class="signature-line">
+    COZY COMFORT INSULATION &middot; CONFIDENTIAL &middot; FOR DISCUSSION PURPOSES
+  </div>
+
+  <!-- ============ PAGE 2: SUPPORTING DETAIL ============ -->
+  <div class="page-break"></div>
+
+  <div class="masthead">
+    <div class="brand">
+      COZY COMFORT <strong>INSULATION</strong>
+      <span class="sub">SANTA ANA &middot; BEVERLY HILLS &middot; SOUTHERN CALIFORNIA</span>
+    </div>
+    <div class="meta">
+      <div class="doc-title">Supporting Detail</div>
+      <div>Two Months Ended April 30, 2026</div>
+    </div>
+  </div>
+
+  <h2>Revenue Mix &amp; Unit Economics</h2>
+  <div class="two-col">
+    <div>
+      <h3>March 2026</h3>
+      <div class="metric-row"><span class="lbl">Total Revenue</span><span class="val">$109,542</span></div>
+      <div class="metric-row"><span class="lbl">Jobs Completed</span><span class="val">21</span></div>
+      <div class="metric-row"><span class="lbl">Avg Ticket Size</span><span class="val">$5,216</span></div>
+      <div class="metric-row"><span class="lbl">R-38 Avg Job (16 jobs)</span><span class="val">$5,432</span></div>
+      <div class="metric-row"><span class="lbl">Avg Sq Ft Insulated</span><span class="val">1,300</span></div>
+      <div class="metric-row"><span class="lbl">Total Sq Ft Insulated</span><span class="val">~28,500</span></div>
+      <div class="metric-row"><span class="lbl">Gross Margin</span><span class="val">67.6%</span></div>
+      <div class="metric-row"><span class="lbl">Net Margin</span><span class="val">37.4%</span></div>
+    </div>
+    <div>
+      <h3>April 2026</h3>
+      <div class="metric-row"><span class="lbl">Total Revenue</span><span class="val">$75,325</span></div>
+      <div class="metric-row"><span class="lbl">Jobs Completed</span><span class="val">15+</span></div>
+      <div class="metric-row"><span class="lbl">Avg Ticket Size</span><span class="val">~$4,500</span></div>
+      <div class="metric-row"><span class="lbl">R-38 Mix</span><span class="val">82.9%</span></div>
+      <div class="metric-row"><span class="lbl">Specialty Mix</span><span class="val">17.1%</span></div>
+      <div class="metric-row"><span class="lbl">Subcontractor Spend</span><span class="val">$8,400</span></div>
+      <div class="metric-row"><span class="lbl">Gross Margin</span><span class="val">57.5%</span></div>
+      <div class="metric-row"><span class="lbl">Net Margin</span><span class="val">18.1%</span></div>
+    </div>
+  </div>
+
+  <h2>Material Sourcing &amp; Vendor Concentration</h2>
+  <div class="metric-row"><span class="lbl">Primary Material Category</span><span class="val">Blown-In Fiberglass R-38</span></div>
+  <div class="metric-row"><span class="lbl">Secondary</span><span class="val">R-19 Batt &amp; Open-Cell Spray Foam</span></div>
+  <div class="metric-row"><span class="lbl">Materials as % of Revenue</span><span class="val">17.0%</span></div>
+  <div class="metric-row"><span class="lbl">2-Month Material Spend</span><span class="val">$31,437</span></div>
+  <div class="metric-row"><span class="lbl">Annualized Run-Rate (Materials)</span><span class="val">~$188,600</span></div>
+
+  <h2>Operating Footprint</h2>
+  <div class="two-col">
+    <div>
+      <h3>Geographic Coverage</h3>
+      <div class="metric-row"><span class="lbl">HQ — Orange County</span><span class="val">Santa Ana, CA</span></div>
+      <div class="metric-row"><span class="lbl">West LA Office</span><span class="val">Beverly Hills, CA</span></div>
+      <div class="metric-row"><span class="lbl">Service Area</span><span class="val">Greater LA &amp; OC Metro</span></div>
+      <div class="metric-row"><span class="lbl">Channel</span><span class="val">Residential Direct</span></div>
+    </div>
+    <div>
+      <h3>Sales Engine</h3>
+      <div class="metric-row"><span class="lbl">Lead Gen Spend / Mo</span><span class="val">$5,000</span></div>
+      <div class="metric-row"><span class="lbl">Appointment Setting</span><span class="val">$1,320</span></div>
+      <div class="metric-row"><span class="lbl">Commission Structure</span><span class="val">10% of Gross</span></div>
+      <div class="metric-row"><span class="lbl">Annualized Revenue Run-Rate</span><span class="val">~$1.11M</span></div>
+    </div>
+  </div>
+
+  <h2>Key Performance Indicators</h2>
+  <table class="pnl">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>March</th>
+        <th>April</th>
+        <th>2-Mo Avg</th>
+        <th>Industry Benchmark</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="line"><td>Revenue per Job</td><td>$5,216</td><td>$4,500</td><td>$4,858</td><td>$3,200</td></tr>
+      <tr class="line"><td>Materials % of Revenue</td><td>17.0%</td><td>17.0%</td><td>17.0%</td><td>22–28%</td></tr>
+      <tr class="line"><td>Labor % of Revenue</td><td>9.1%</td><td>19.6%</td><td>13.4%</td><td>18–22%</td></tr>
+      <tr class="line"><td>Gross Margin</td><td>67.6%</td><td>57.5%</td><td>63.5%</td><td>35–45%</td></tr>
+      <tr class="line"><td>Net Margin (post-owner comp)</td><td>37.4%</td><td>18.1%</td><td>29.5%</td><td>8–15%</td></tr>
+    </tbody>
+  </table>
+
+  <div class="notes">
+    <strong>Confidentiality.</strong> This document is prepared for review by Knauf Insulation senior management
+    and contains proprietary financial information. Distribution is restricted to the named recipient
+    and their direct designees for the purpose of evaluating a strategic supply relationship.
+  </div>
+
+  <div class="signature-line">
+    COZY COMFORT INSULATION &middot; CONFIDENTIAL &middot; PAGE 2 OF 2
+  </div>
+
+</div>
+</body>
+</html>
